@@ -3,12 +3,11 @@ import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import Cropper from 'react-cropper'
 import 'cropperjs/dist/cropper.css'
+import './Cropper.css'
 
 const customContentStyle = {
-  position: 'absolute',
-  left: '20px',
-  top: '20px',
-  width: '70%'
+  width: '70%',
+  margin: 'auto'
 }
 
 class Modal extends React.Component {
@@ -51,7 +50,13 @@ class Modal extends React.Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          <Cropper src={this.state.imgsrc} guides={false} crop={this._crop} />
+          <Cropper
+            style={{ height: 400, width: '100%' }}
+            aspectRatio={16 / 16}
+            src={this.state.imgsrc}
+            guides={false}
+            crop={this._crop}
+          />
         </Dialog>
       </div>
     )
